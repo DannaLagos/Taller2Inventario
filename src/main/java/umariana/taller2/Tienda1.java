@@ -153,18 +153,24 @@ public Tienda1() {
                         //// Compara el ID del producto con el ID ingresado por el usuario
                         if(p.getIdProducto()== id){
                            // Elimina el producto si se encuentra
-                           it.remove();
                            encontrado = true;
-                        break;
-                       }
-                    }
-                     if (encontrado) {
-                         System.out.println("El producto con id "+id+" ha sido eliminado");
-                     } else {
-                         System.out.println("No se encontro ningun producto con ese Id");
-                 }
-        }
-    
+		                    System.out.println("¿Esta seguro de eliminar este producto?");
+		                    System.out.println("Ingrese: 1 para eliminar o 2 para Salir: ");
+		                    int confirmacion = lector.nextInt();
+		                    if (confirmacion == 1) {
+		                        it.remove();
+		                        System.out.println("El producto con Id: " + id + " ha sido eliminado.");
+		                    } else {
+		                        System.out.println("El producto no ha sido eliminado.");
+		                    }
+		                    break;
+		                }
+		            }
+		            if (!encontrado) {
+		                System.out.println("No se encontro ningun producto con ese Id.");
+		            }
+		        }
+		    
     //Entrada del Programa
     public static void main(String[] args) {
         //Crea un Objeto de la clase tienda1
